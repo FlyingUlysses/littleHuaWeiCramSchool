@@ -12,7 +12,7 @@
 ;!function(){
   "use strict";
   
-//此源码已经修改，静态情况下，不再有选中效果。可以多次选中，并且翻页不影响选中,会调用done方法
+//此源码已经修改，静态情况下，不再有选中效果。可以多次选中。修改了选中，回调，换月，取消了换年
   
   var isLayui = window.layui && layui.define, ready = {
     getPath: function(){
