@@ -612,6 +612,7 @@
         return elem;
       }(), function(){ //上一月
         var elem = lay.elem('i', {
+          'id':'preMonth',
           'class': 'layui-icon laydate-icon laydate-prev-m'
         });
         elem.innerHTML = '&#xe603;';
@@ -625,6 +626,7 @@
         return elem;
       }(), function(){ //下一月
         var elem = lay.elem('i', {
+          'id':'nextMonth',
           'class': 'layui-icon laydate-icon laydate-next-m'
         });
         elem.innerHTML = '&#xe602;';
@@ -1736,7 +1738,6 @@
       //上一月
       lay(header[1]).on('click', function(e){
         that.change(i).prevMonth();
-        that.done().done(null, 'change');
       });
       
       //选择年月
@@ -1757,7 +1758,6 @@
       //下一月
       lay(header[3]).on('click', function(e){
         that.change(i).nextMonth();
-        that.done().done(null, 'change');
       });
       
       //下一年
