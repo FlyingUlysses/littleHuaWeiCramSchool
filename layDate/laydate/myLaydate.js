@@ -395,7 +395,6 @@
     ,zIndex: null //控件层叠顺序
     ,done: null //控件选择完毕后的回调，点击清空/现在/确定也均会触发
     ,change: null //日期时间改变后的回调
-    ,changMonth:null //月份改变时回调
   };
   
   //多语言
@@ -1739,6 +1738,7 @@
       //上一月
       lay(header[1]).on('click', function(e){
         that.change(i).prevMonth();
+        changeMonth();
       });
       
       //选择年月
@@ -1759,6 +1759,7 @@
       //下一月
       lay(header[3]).on('click', function(e){
         that.change(i).nextMonth();
+        changeMonth();
       });
       
       //下一年
@@ -1872,3 +1873,11 @@
   );
 
 }();
+
+
+function changeMonth(){
+  $.each(dateArray,function(i,item){
+    $("td[lay-ymd='"+item+"']").attr("class","laydate-selected");
+  });
+  $("td[class='layui-this']").removeClass("layui-this");
+}

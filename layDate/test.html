@@ -60,20 +60,7 @@ lay('#version').html('-v'+ laydate.v);
 			  }
 		 });
 
-$(function(){
-	$('#nextMonth').click(function(){
-		$("td[class='layui-this']").removeClass("layui-this");
-		$.each(dateArray,function(i,item){
-			$("td[lay-ymd='"+item+"']").attr("class","laydate-selected");
-		});
-	});
-	$('#preMonth').click(function(){
-		$.each(dateArray,function(i,item){
-			$("td[lay-ymd='"+item+"']").attr("class","laydate-selected");
-			$("td[class='layui-this']").removeClass("layui-this");
-		});
-	});
-});
+
 
 </script>
 </body>
