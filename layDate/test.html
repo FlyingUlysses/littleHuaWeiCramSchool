@@ -30,35 +30,35 @@ lay('#version').html('-v'+ laydate.v);
 
 //执行一个laydate实例
 
- var dateArray=[];
-         laydate.render({
-			  elem: "#showdiv", 
-			  min: "2018-01-01",
-			  max: "2018-03-03",
-			  show: true,
-			  calendar: true,
-			  showBottom: false,
-			  theme: 'molv',
-			  position: 'static',
-			  done: function(value, date, endDate){
-				$("td[class='layui-this']").removeClass("layui-this");
-			    var timeArray = value.split("-");
-			    var mInt = parseInt(timeArray[1]);
-			    var dInt = parseInt(timeArray[2]);
-			    if($("td[lay-ymd='"+(timeArray[0]+"-"+mInt+"-"+dInt)+"']").attr("class") == "laydate-selected"){
-			         $("td[lay-ymd='"+(timeArray[0]+"-"+mInt+"-"+dInt)+"']").removeClass("laydate-selected");
-			         $.each(dateArray,function(i,item){
-			             if(timeArray[0]+"-"+mInt+"-"+dInt == item){
-			                  dateArray.splice(i);
-			             }
-			         });
-			    }else{
-					dateArray.push((timeArray[0]+"-"+mInt+"-"+dInt));
-					$("td[lay-ymd='"+(timeArray[0]+"-"+mInt+"-"+dInt)+"']").attr("class","laydate-selected")
+var dateArray=[];
+laydate.render({
+	elem: "#showdiv", 
+	min: "2018-01-01",
+	max: "2018-03-03",
+	show: true,
+	calendar: true,
+	showBottom: false,
+	theme: 'molv',
+	position: 'static',
+	done: function(value, date, endDate){
+	$("td[class='layui-this']").removeClass("layui-this");
+	var timeArray = value.split("-");
+	var mInt = parseInt(timeArray[1]);
+	var dInt = parseInt(timeArray[2]);
+	if($("td[lay-ymd='"+(timeArray[0]+"-"+mInt+"-"+dInt)+"']").attr("class") == "laydate-selected"){
+			$("td[lay-ymd='"+(timeArray[0]+"-"+mInt+"-"+dInt)+"']").removeClass("laydate-selected");
+			$.each(dateArray,function(i,item){
+				if(timeArray[0]+"-"+mInt+"-"+dInt == item){
+					dateArray.splice(i);
 				}
-			    console.log(dateArray);
-			  }
-		 });
+			});
+	}else{
+		dateArray.push((timeArray[0]+"-"+mInt+"-"+dInt));
+		$("td[lay-ymd='"+(timeArray[0]+"-"+mInt+"-"+dInt)+"']").attr("class","laydate-selected")
+	}
+	console.log(dateArray);
+	}
+});
 
 
 
